@@ -1,6 +1,6 @@
 # Foodle — The Daily Food Word Game
 
-Foodle is a daily food-themed word game inspired by the spirit of Wordle. Every midnight, a new fresh dish or ingredient is selected — try to guess it in six tries!
+[Foodle](https://foodlegame.net) is a daily food-themed word game inspired by the spirit of Wordle. Every midnight, a new fresh dish or ingredient is selected — try to guess it in six tries!
 
 ## Project Overview
 
