@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Foodle Hourly — A new food word every hour</title>
+<meta name="description" content="Foodle Hourly: a fresh food word at the top of every hour. Quick puzzles for snack-sized breaks." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../foodle.css" />
+</head>
+<body>
+<div class="mode-hero">
+  <div class="me-eyebrow">Hourly · refresh on the hour</div>
+  <h1>A new food word every hour, on the hour.</h1>
+  <p>Coffee break? Bus ride? Twelve minutes between meetings? There's always a fresh puzzle waiting.</p>
+</div>
+
+<div id="root"></div>
+
+<article class="page-content">
+  <p><b>Foodle Hourly</b> is for the in-between moments. At the top of every clock hour we swap in a new food word — a quick, time-boxed puzzle that fits between everything else you're doing. Solve it in your coffee break, lose it in your inbox, come back at the top of the next hour and try again.</p>
+
+  <h2>What hourly is good for</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feat-icon">⏱</div>
+      <h3>Snack-sized stakes</h3>
+      <p>Twenty-four chances to win every day. Miss one? The next round is sixty minutes away.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🌍</div>
+      <h3>Synced worldwide</h3>
+      <p>Everyone in your time zone gets the same word at the same hour. Texting "did you get 3pm?" actually makes sense.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">📊</div>
+      <h3>Independent stats</h3>
+      <p>Your hourly streak is tracked separately from daily — no need to choose. Build both.</p>
+    </div>
+  </div>
+
+  <h2>The hourly rhythm</h2>
+  <p>The hourly mode is intentionally different from daily. Daily rewards patience — you can come back after dinner, sleep on it, finish before midnight. Hourly rewards <em>presence</em>. You either pick it up in the next sixty minutes or you don't. The countdown above the board ticks down to the next swap.</p>
+  <p>Three things to know:</p>
+  <ul>
+    <li>Each hour is its own seed — the word at 3pm is unrelated to the word at 4pm.</li>
+    <li>You can play any of the three lengths each hour (5, 6, or 7 letters), and they're all separate puzzles.</li>
+    <li>Hints behave the same as daily: three available, each costs a remaining guess.</li>
+  </ul>
+
+  <h2>How to win more often, faster</h2>
+  <ol>
+    <li><b>Pick one length and stick with it.</b> Switching boards mid-hour shortens your effective time per puzzle.</li>
+    <li><b>Have a starter you trust.</b> A word like CRANE, ADIEU, or SLATE in the 5-letter board gives you a known baseline. Use the same opener every hour and your second guess gets faster.</li>
+    <li><b>Time-box the hint.</b> If you're not making progress by guess three, take a hint. The hourly format punishes overthinking more than it punishes giving up a guess.</li>
+    <li><b>Don't chase a missed hour.</b> Lost an hour? It happens. The next round resets at :00.</li>
+  </ol>
+
+  <h2>Hourly FAQ</h2>
+  <div class="faq">
+    <details>
+      <summary>What happens at the top of the hour?</summary>
+      <p>The puzzle resets to a brand-new word and you get fresh guesses. If you were mid-game, your unfinished round counts as a loss against your hourly stats — so finish before the buzzer or wait for the next one.</p>
+    </details>
+    <details>
+      <summary>Does my hourly streak count failed hours?</summary>
+      <p>Only hours you <em>played and lost</em>. If you didn't play at all that hour, your streak is paused, not broken. The streak only resets if you actually attempted a puzzle and didn't solve it.</p>
+    </details>
+    <details>
+      <summary>Can I play multiple hourly puzzles at once?</summary>
+      <p>You can switch lengths and play 5-, 6-, and 7-letter puzzles in the same hour. Each is its own puzzle and counts toward its own stats.</p>
+    </details>
+    <details>
+      <summary>Why is the hourly word easier than daily sometimes?</summary>
+      <p>The pool is the same, but with 24 puzzles a day to fill, we lean slightly more on common foods. Daily gets the harder, weirder picks.</p>
+    </details>
+    <details>
+      <summary>Does midnight count as a daily and an hourly?</summary>
+      <p>Yes — the midnight hour gets a fresh hourly word at :00, and the daily word also flips at midnight. Two separate puzzles, two separate stats.</p>
+    </details>
+    <details>
+      <summary>I missed a really good word. Can I see it?</summary>
+      <p>Hourly words don't have a public archive. They go by too fast to be worth listing. If you want to study a specific food word, the <a href="../unlimited/">unlimited mode</a> will let you keep playing until you draw it.</p>
+    </details>
+  </div>
+
+  <hr class="divider" />
+
+  <p style="text-align: center;">Want a slower pace? Try <a href="../index.html">Daily</a>. Want no pace at all? Try <a href="../unlimited/">Unlimited</a>.</p>
+</article>
+
+<div id="site-footer-slot"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>window.FOODLE_FORCED_MODE = "hourly";</script>
+<script src="../foodle-data.js"></script>
+<script type="text/babel" src="../tweaks-panel.jsx"></script>
+<script type="text/babel" src="../foodle-game.jsx"></script>
+<script type="text/babel" src="../foodle-modals.jsx"></script>
+<script type="text/babel" src="../foodle-app.jsx"></script>
+<script src="../footer.js" defer></script>
+</body>
+</html>

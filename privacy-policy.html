@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy — Foodle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="foodle.css" />
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="page-back">← Back to Foodle</a>
+  <div class="page-eyebrow">Legal</div>
+  <h1 class="page-title">Privacy Policy</h1>
+  <p class="page-dek">Foodle is built to be a small, friendly word game. This policy explains exactly what we store, where, and why.</p>
+  <div class="page-meta"><span>Last updated: May 8, 2026</span><span>•</span><span>Effective immediately</span></div>
+
+  <h2>1. The short version</h2>
+  <p>We do not collect your name, your email, your IP address, or any other personally identifying information. The game runs in your browser. Your scores, streaks, and current puzzle progress are stored on <em>your</em> device using <code>localStorage</code> — they never leave it.</p>
+
+  <h2>2. What we store locally</h2>
+  <ul>
+    <li><b>Game state</b> — your current daily/hourly puzzle, the guesses you've made, and whether you've solved it. Required so refreshing doesn't make you start over.</li>
+    <li><b>Statistics</b> — games played, win percentage, current streak, longest streak, guess distribution. Used only to render your stats screen.</li>
+    <li><b>Preferences</b> — your last selected mode, length, theme, font, tile shape, animation speed, and dark mode setting. Used to keep the game looking the way you left it.</li>
+  </ul>
+  <p>Everything above lives in your browser's local storage. You can clear it at any time through your browser's privacy settings; doing so will reset stats and preferences.</p>
+
+  <h2>3. What we do not collect</h2>
+  <ul>
+    <li>We do not run analytics or third-party tracking scripts.</li>
+    <li>We do not use cookies for advertising or cross-site tracking.</li>
+    <li>We do not have user accounts, sign-in, or social linking.</li>
+    <li>We do not share or sell anything, because we have nothing to share or sell.</li>
+  </ul>
+
+  <h2>4. Fonts &amp; static assets</h2>
+  <p>The game loads fonts from Google Fonts. When your browser fetches a font file, Google may log standard request data (IP address, user agent) per its own privacy policy. We do not receive that data and have no way to associate it with your gameplay. If you'd prefer the game ran fully offline, host it locally — the source is small and self-contained.</p>
+
+  <h2>5. Children</h2>
+  <p>Foodle is suitable for all ages. Because we collect no personal information whatsoever, no special protections under COPPA, GDPR-K, or similar regimes are triggered.</p>
+
+  <h2>6. Changes to this policy</h2>
+  <p>If this policy ever changes — for instance, if we add a leaderboard with optional sign-in — we'll update the "Last updated" date at the top and explain what's new in plain language. We won't quietly start collecting data that wasn't covered here before.</p>
+
+  <h2>7. Contact</h2>
+  <p>Questions, concerns, or noticed something off? Reach out at <a href="mailto:hello@foodle.game">hello@foodle.game</a>. Real human, usually replies within a day or two.</p>
+
+  <p style="font-size: 13px; color: var(--c-muted); border-top: 1px solid var(--c-border); padding-top: 18px; margin-top: 36px;">
+    See also: <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.
+  </p>
+</div>
+<div id="site-footer-slot"></div>
+<script src="footer.js" defer></script>
+</body>
+</html>

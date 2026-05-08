@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Foodle Unlimited — Play as many food words as you want</title>
+<meta name="description" content="Foodle Unlimited: no clock, no limits. Solve as many food word puzzles as you like — perfect for warmups, plane rides, and rainy afternoons." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../foodle.css" />
+</head>
+<body>
+<div class="mode-hero">
+  <div class="me-eyebrow">Unlimited · play forever</div>
+  <h1>No clock. No streaks. Just one more puzzle.</h1>
+  <p>For warmups, long flights, rainy Sundays — and the kind of player who says "okay, last one" at least nine times.</p>
+</div>
+
+<div id="root"></div>
+
+<article class="page-content">
+  <p><b>Foodle Unlimited</b> is the version with no rules about when. Solve a puzzle, hit "Next word," repeat. There are no countdowns, no streaks, and nothing waiting for you tomorrow morning. The only thing that ends a session is you putting your phone down — eventually, supposedly.</p>
+
+  <h2>What unlimited is for</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feat-icon">🛫</div>
+      <h3>Long stretches of nothing</h3>
+      <p>Plane rides, waiting rooms, an unhurried Saturday. Unlimited fills the time the way a good crossword used to.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">📚</div>
+      <h3>Practice for the daily</h3>
+      <p>Learn the food vocabulary at your own pace. Burn through fifty 5-letter rounds and the daily becomes much friendlier.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🧪</div>
+      <h3>Try new openers</h3>
+      <p>Test whether SLATE really is better than CRANE without sacrificing your daily streak. The lab is open.</p>
+    </div>
+  </div>
+
+  <h2>How unlimited differs</h2>
+  <ul>
+    <li><b>No streak.</b> Streaks reward consistency — unlimited rewards volume. The two would fight, so we let unlimited be its own thing.</li>
+    <li><b>No timer.</b> Take five seconds or five hours per word. The countdown chip is hidden on this mode.</li>
+    <li><b>"Next word" is the main button.</b> Win or lose, it's right there at the bottom of the food card. Tap, get a new word, keep going.</li>
+    <li><b>Stats are tracked separately.</b> Your unlimited record (played, won, win %) is its own column.</li>
+  </ul>
+
+  <h2>How to get the most out of it</h2>
+  <ol>
+    <li><b>Treat the first 10 rounds as warmup.</b> Use them to test openers and learn the food-word distribution.</li>
+    <li><b>Cycle through the lengths.</b> Each board (5, 6, 7) has a different feel — five is fast, six rewards anagram instinct, seven punishes overcommitting early.</li>
+    <li><b>Don't chase win rate.</b> Unlimited mode is the place to take wild guesses without paying for them. Your daily streak is safe over here.</li>
+    <li><b>Use hints freely.</b> They're meant to be used. The cost feels lower when there's another puzzle waiting one tap away.</li>
+  </ol>
+
+  <h2>Unlimited FAQ</h2>
+  <div class="faq">
+    <details>
+      <summary>Why isn't there an unlimited streak?</summary>
+      <p>Streaks measure scarcity — one chance per day, did you take it? Unlimited has the opposite shape. Every loss is a tap away from a fresh round, so a streak there would be all noise and no signal.</p>
+    </details>
+    <details>
+      <summary>Will I see the same word twice?</summary>
+      <p>Eventually, yes. The food word pool is curated, not infinite. We don't actively dedupe within a session, so a long Sunday afternoon will turn up some repeats. Treat them as a chance to set a personal speed record.</p>
+    </details>
+    <details>
+      <summary>Does unlimited share words with daily and hourly?</summary>
+      <p>Yes — same curated pool. The difference is the seed: daily picks one word per calendar day, hourly picks one per clock hour, and unlimited picks at random each round.</p>
+    </details>
+    <details>
+      <summary>Can I share an unlimited result?</summary>
+      <p>You can — every solved game generates the same color-block grid you'd share from daily. We just don't tag it with a puzzle number, since unlimited rounds aren't synchronized.</p>
+    </details>
+    <details>
+      <summary>Will unlimited stats sync to my daily?</summary>
+      <p>No. They're tracked in their own bucket, on your device. The four numbers (played, win %, current streak, max streak) you see on the stats screen reflect the mode you're currently playing.</p>
+    </details>
+    <details>
+      <summary>Is unlimited a good mode for kids learning English?</summary>
+      <p>Surprisingly so. The food vocabulary is concrete, the win cards explain origins, and there's no time pressure. Hints are forgiving. We've heard from a few families using it as a low-stakes nightly word study.</p>
+    </details>
+  </div>
+
+  <hr class="divider" />
+
+  <p style="text-align: center;">Want a single shared puzzle a day? <a href="../index.html">Daily</a>. Like a clock on your back? <a href="../hourly/">Hourly</a>.</p>
+</article>
+
+<div id="site-footer-slot"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>window.FOODLE_FORCED_MODE = "unlimited";</script>
+<script src="../foodle-data.js"></script>
+<script type="text/babel" src="../tweaks-panel.jsx"></script>
+<script type="text/babel" src="../foodle-game.jsx"></script>
+<script type="text/babel" src="../foodle-modals.jsx"></script>
+<script type="text/babel" src="../foodle-app.jsx"></script>
+<script src="../footer.js" defer></script>
+</body>
+</html>

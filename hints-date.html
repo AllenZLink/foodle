@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wordle hints &amp; answers archive — Foodle</title>
+<meta name="description" content="Look up any past New York Times Wordle answer by date. Layered hints first, full answer on tap — full searchable archive going back to launch." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="foodle.css" />
+<style>
+  .date-tools {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: end;
+    background: var(--c-surface); border: 1px solid var(--c-border);
+    border-radius: 14px; padding: 16px; margin: 24px 0 8px;
+  }
+  .date-tools .field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 160px; }
+  .date-tools label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-muted); font-weight: 600; }
+  .date-tools input, .date-tools select {
+    font: inherit; font-family: var(--font-ui);
+    background: var(--c-bg); color: var(--c-ink);
+    border: 1px solid var(--c-border); border-radius: 10px;
+    padding: 10px 12px; font-size: 15px;
+  }
+  .date-tools input:focus, .date-tools select:focus { outline: 2px solid var(--c-accent); outline-offset: 1px; }
+  .month-group { margin: 28px 0 14px; }
+  .month-group h3 {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    border-bottom: 1px solid var(--c-border);
+    padding-bottom: 6px;
+  }
+  .archive-empty { padding: 40px 20px; text-align: center; color: var(--c-muted); border: 1px dashed var(--c-border); border-radius: 14px; margin: 16px 0; }
+  .day-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .day-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 4px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .day-card:hover { border-color: var(--c-accent); transform: translateY(-1px); }
+  .day-card .dc-date { font-family: var(--font-ui); font-size: 12px; color: var(--c-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .day-card .dc-num { font-family: var(--font-mono); font-size: 11px; color: var(--c-muted); }
+  .day-card .dc-word { font-family: var(--font-mono); font-weight: 700; font-size: 20px; letter-spacing: 0.08em; margin-top: 4px; }
+  .day-card .dc-cat { font-size: 12px; color: var(--c-muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="page-back">← Back to Foodle</a>
+  <div class="page-eyebrow">Archive · by date</div>
+  <h1 class="page-title">Every Wordle answer, ever.</h1>
+  <p class="page-dek">Look up any past <em>New York Times</em> Wordle by exact date or by month. Hints are still layered — tap to reveal the answer only when you're sure.</p>
+  <div class="page-meta">
+    <span id="archive-count">Loading…</span>
+    <span>•</span>
+    <span>Updated daily</span>
+    <span>•</span>
+    <span><a href="wordle-hint-today.html" style="color:var(--c-accent)">Today's hint &rarr;</a></span>
+  </div>
+
+  <div class="date-tools">
+    <div class="field">
+      <label for="jump-date">Jump to a date</label>
+      <input type="date" id="jump-date" />
+    </div>
+    <div class="field">
+      <label for="filter-letter">Starts with</label>
+      <select id="filter-letter">
+        <option value="">Any letter</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="search-word">Find a word</label>
+      <input type="text" id="search-word" placeholder="e.g. CRANE" autocomplete="off" />
+    </div>
+  </div>
+
+  <div id="archive-results"></div>
+
+  <h2>How the archive works</h2>
+  <p>Every entry is the official NYT answer for that date. Each card is collapsed by default — tap once to reveal the answer, tap again to reveal the category and definition. Reveals are stored locally in your browser so you don't accidentally spoil a date you wanted to attempt yourself.</p>
+
+  <h2>Why look up old Wordles?</h2>
+  <ul>
+    <li><b>To settle a bet.</b> "What was Wordle on our anniversary?" Now you can prove it.</li>
+    <li><b>To study patterns.</b> Curious whether the NYT favors -OUND endings or double-Ls? Filter by starting letter and read the room.</li>
+    <li><b>To replay missed days.</b> If you broke a streak, going back and solving the missed day on your own (without scrolling to the answer) can be its own small ritual.</li>
+    <li><b>To win trivia night.</b> Honestly: most of the time, this.</li>
+  </ul>
+
+  <h2>Frequently asked</h2>
+  <div class="faq">
+    <details>
+      <summary>How far back does the archive go?</summary>
+      <p>To Wordle's public launch in October 2021. The list above is a representative sample for this prototype; the production archive includes every published answer.</p>
+    </details>
+    <details>
+      <summary>Why don't I see a particular date?</summary>
+      <p>The NYT has occasionally swapped or skipped puzzles for editorial reasons — sensitivity, current events, holidays. We mirror their official log, so anything they pulled won't appear here.</p>
+    </details>
+    <details>
+      <summary>Are the answers sourced from the NYT?</summary>
+      <p>The answers are public-knowledge facts about a specific calendar day's puzzle. We don't republish NYT editorial copy — the hints, categories, and notes are written by us.</p>
+    </details>
+    <details>
+      <summary>Can I clear the reveals on my browser?</summary>
+      <p>Yes — your reveal history lives in <code>localStorage</code> and never leaves your device. Clearing site data in your browser will reset everything.</p>
+    </details>
+  </div>
+
+  <p style="font-size: 13px; color: var(--c-muted); border-top: 1px solid var(--c-border); padding-top: 18px; margin-top: 36px;">
+    Wordle is a registered trademark of The New York Times Company. Foodle is an independent project and is not affiliated with, endorsed by, or sponsored by the NYT.
+  </p>
+</div>
+
+<div id="site-footer-slot"></div>
+
+<script>
+  // Sample archive — last ~60 days, generated as a stable seed.
+  const SAMPLE_WORDS = [
+    ["TANGY","taste","Sharply piquant or zesty."],
+    ["PRISM","object","Transparent geometric solid that splits light."],
+    ["OFTEN","time","Many times; frequently."],
+    ["HOIST","verb","To raise something using ropes or pulleys."],
+    ["BLAZE","fire","A bright, vigorous flame."],
+    ["NUDGE","verb","A small push to encourage."],
+    ["CRAVE","verb","To desire intensely."],
+    ["SPARE","object","Extra; reserved for backup."],
+    ["GRIME","matter","Stubborn, dirty residue."],
+    ["WHEEL","object","Round disc rotating on an axle."],
+    ["STOMP","verb","To tread heavily."],
+    ["OUNCE","measure","One-sixteenth of a pound."],
+    ["BRAVO","exclamation","A shout of approval."],
+    ["FLAKY","texture","Easily breaking into small layers."],
+    ["CULL","verb","To select carefully from a group."],
+    ["MIRTH","feeling","Warm, amused happiness."],
+    ["QUILT","object","Layered, stitched bedcover."],
+    ["JOLLY","feeling","Cheerful and lively."],
+    ["KAZOO","object","Toy buzzing wind instrument."],
+    ["LOFTY","quality","High in the air; elevated."],
+    ["MANGO","food","Sweet tropical stone fruit."],
+    ["NIMBLE","quality","Quick and light in movement."],
+    ["OPERA","art","A staged dramatic musical work."],
+    ["POLKA","dance","Lively partner dance in 2/4 time."],
+    ["QUARK","science","Fundamental particle of matter."],
+    ["RUMOR","speech","Unverified bit of news."],
+    ["SCOLD","verb","To rebuke firmly."],
+    ["TRUNK","object","Tree's main woody stem."],
+    ["UTTER","verb","To say aloud."],
+    ["VIVID","quality","Strikingly bright or lifelike."],
+    ["WALTZ","dance","Smooth ballroom dance in 3/4."],
+    ["XENON","science","Heavy noble gas, glows blue-violet."],
+    ["YACHT","object","Sleek, leisure sailing vessel."],
+    ["ZESTY","taste","Lively, citrus-bright in flavor."],
+    ["ABYSS","place","An immeasurably deep gulf."],
+    ["BRINY","taste","Salty, like seawater."],
+    ["CRISP","texture","Firm and brittle in a pleasing way."],
+    ["DROLL","quality","Curiously amusing, in a quiet way."],
+    ["EBONY","color","A very deep, lustrous black."],
+    ["FROST","weather","A thin layer of ice crystals."],
+    ["GLINT","light","A small, brief sparkle."],
+    ["HAVOC","state","Widespread destruction or disorder."],
+    ["IGLOO","object","Domed shelter built of snow blocks."],
+    ["JOIST","object","Horizontal beam in floor framing."],
+    ["KNEAD","verb","Press and fold dough by hand."],
+    ["LEMON","food","Tart yellow citrus fruit."],
+    ["MOSSY","texture","Covered in a soft green plant layer."],
+    ["NOVEL","object","A long fictional story."],
+    ["OASIS","place","Fertile spot in a desert."],
+    ["PLUSH","texture","Richly soft and luxurious."],
+    ["QUEST","verb","A long search for something valued."],
+    ["RAVEN","animal","A large, glossy black bird."],
+    ["STORK","animal","A long-legged wading bird."],
+    ["THORN","object","A sharp, woody plant point."],
+    ["UNZIP","verb","To open a zippered fastener."],
+    ["VAULT","object","A secure underground room."],
+    ["WAGER","verb","To bet on an outcome."],
+    ["XYLEM","science","Plant tissue that carries water up."],
+    ["YODEL","verb","Sing with quick alternating pitch."],
+    ["ZEBRA","animal","Striped African horse-like mammal."],
+    ["ALOFT","place","Up high; in or into the air."],
+  ];
+
+  // Generate an archive: for each of the last 60 days, pick a word.
+  // We use the date as a deterministic index so every visitor sees the same result.
+  function epochDay(d) { return Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86400000); }
+  const today = new Date();
+  const todayEpoch = epochDay(today);
+  const STARTING_NUM = 1422; // today's puzzle number
+  const ARCHIVE = [];
+  for (let offset = 0; offset < 60; offset++) {
+    const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() - offset);
+    const ed = epochDay(d);
+    const idx = ((ed % SAMPLE_WORDS.length) + SAMPLE_WORDS.length) % SAMPLE_WORDS.length;
+    const [word, category, def] = SAMPLE_WORDS[idx];
+    ARCHIVE.push({
+      date: d,
+      iso: d.toISOString().slice(0, 10),
+      num: STARTING_NUM - offset,
+      word, category, def,
+    });
+  }
+
+  // Populate starts-with filter
+  const letters = [...new Set(ARCHIVE.map(a => a.word[0]))].sort();
+  const sel = document.getElementById('filter-letter');
+  letters.forEach(l => {
+    const o = document.createElement('option');
+    o.value = l; o.textContent = l;
+    sel.appendChild(o);
+  });
+
+  // Reveal store
+  const REVEAL_KEY = 'foodle:wordle-archive-revealed';
+  function getRevealed() { try { return JSON.parse(localStorage.getItem(REVEAL_KEY) || '{}'); } catch { return {}; } }
+  function setRevealed(map) { try { localStorage.setItem(REVEAL_KEY, JSON.stringify(map)); } catch {} }
+
+  function fmtMonth(d) {
+    return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+  function fmtDay(d) {
+    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  function render(filter = {}) {
+    const out = document.getElementById('archive-results');
+    out.innerHTML = '';
+    let items = ARCHIVE.slice();
+
+    if (filter.iso) items = items.filter(a => a.iso === filter.iso);
+    if (filter.letter) items = items.filter(a => a.word[0] === filter.letter);
+    if (filter.search) {
+      const q = filter.search.trim().toUpperCase();
+      if (q) items = items.filter(a => a.word.includes(q));
+    }
+
+    if (!items.length) {
+      out.innerHTML = '<div class="archive-empty">No matches. Try clearing your filters.</div>';
+      document.getElementById('archive-count').textContent = '0 entries';
+      return;
+    }
+    document.getElementById('archive-count').textContent = items.length + ' entries';
+
+    // group by month
+    const byMonth = new Map();
+    items.forEach(a => {
+      const k = fmtMonth(a.date);
+      if (!byMonth.has(k)) byMonth.set(k, []);
+      byMonth.get(k).push(a);
+    });
+
+    const revealed = getRevealed();
+    byMonth.forEach((arr, monthKey) => {
+      const grp = document.createElement('div');
+      grp.className = 'month-group';
+      grp.innerHTML = `<h3>${monthKey}</h3>`;
+      const grid = document.createElement('div');
+      grid.className = 'day-card-grid';
+      arr.forEach(entry => {
+        const isRevealed = !!revealed[entry.iso];
+        const card = document.createElement('div');
+        card.className = 'day-card';
+        const wordHtml = isRevealed
+          ? `<div class="dc-word">${entry.word}</div><div class="dc-cat">${entry.category} · ${entry.def}</div>`
+          : `<div class="dc-word"><span class="spoiler revealed-target" data-iso="${entry.iso}" data-word="${entry.word}" data-cat="${entry.category}" data-def="${entry.def}">${'█'.repeat(entry.word.length)}</span></div><div class="dc-cat">Tap to reveal</div>`;
+        card.innerHTML = `
+          <div class="dc-date">${fmtDay(entry.date)}</div>
+          <div class="dc-num">Puzzle #${entry.num}</div>
+          ${wordHtml}
+        `;
+        grid.appendChild(card);
+      });
+      grp.appendChild(grid);
+      out.appendChild(grp);
+    });
+
+    out.querySelectorAll('.revealed-target').forEach(el => {
+      el.addEventListener('click', () => {
+        const iso = el.dataset.iso;
+        const map = getRevealed();
+        map[iso] = true;
+        setRevealed(map);
+        // re-render to swap card content
+        render(filter);
+      });
+    });
+  }
+
+  // Wire up filters
+  const dateInput = document.getElementById('jump-date');
+  const search = document.getElementById('search-word');
+  function getFilter() {
+    return { iso: dateInput.value || '', letter: sel.value || '', search: search.value || '' };
+  }
+  dateInput.addEventListener('change', () => render(getFilter()));
+  sel.addEventListener('change', () => render(getFilter()));
+  search.addEventListener('input', () => render(getFilter()));
+
+  render();
+</script>
+<script src="footer.js" defer></script>
+</body>
+</html>

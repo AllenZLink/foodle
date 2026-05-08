@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Foodle — The daily food word game</title>
+<meta name="description" content="Foodle is a daily food-themed word game in the spirit of Wordle. One fresh dish every midnight — guess in six." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="foodle.css" />
+</head>
+<body>
+<div class="mode-hero">
+  <div class="me-eyebrow">Daily · midnight reset</div>
+  <h1>One dish. Six guesses. A new word every day.</h1>
+  <p>Today's puzzle is the same for every player on the planet — solve it before midnight, then come back tomorrow.</p>
+</div>
+
+<div id="root"></div>
+
+<article class="page-content">
+  <p>Welcome to <b>Foodle Daily</b> — the slow, savory cousin of your morning coffee ritual. Each midnight (your local time) the kitchen swaps in a new five-, six-, or seven-letter food word: an ingredient, a dish, a technique, a snack from somewhere on the map. You get six tries on the five-letter board, seven on the six, and eight on the seven. Solve it, and we'll tell you a quick story about what you found.</p>
+
+  <h2>Why play once a day?</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feat-icon">🍳</div>
+      <h3>It's a ritual</h3>
+      <p>One puzzle a day, same as everyone else. The constraint is half the fun — and the reason you'll text your friends about it.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🧠</div>
+      <h3>Real food, real stakes</h3>
+      <p>Every answer is a real food word with a story attached: where it comes from, who first cooked it, why it endures.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🔥</div>
+      <h3>Streaks worth keeping</h3>
+      <p>Daily wins build a streak. Miss a day and it resets — but the rolling count of "best ever" stays with you forever.</p>
+    </div>
+  </div>
+
+  <h2>How to play</h2>
+  <p>Type any real word of the right length and hit Enter. Each guess fills the row, then flips to show how close you got:</p>
+  <ul>
+    <li><b>Green</b> — the letter is in the word and in the right spot.</li>
+    <li><b>Yellow</b> — the letter is in the word, but somewhere else.</li>
+    <li><b>Gray</b> — the letter isn't in the word at all.</li>
+  </ul>
+  <p>Use early guesses to test vowels and common consonants. Save your last few rows for hard commits. If you're stuck, the <b>💡 Hint</b> button gives you a category nudge, then a starting letter, then a definition — but each hint costs you one of your remaining guesses, so spend them carefully.</p>
+
+  <h2>Tips for the daily board</h2>
+  <ol>
+    <li><b>Open with a vowel-heavy word.</b> ADIEU, AUDIO, OUIJA all spend four of five tiles on vowels — you'll know fast which way to lean.</li>
+    <li><b>Don't burn green letters.</b> If your second row already has a confirmed green, keep it in place even if you're tempted to swap.</li>
+    <li><b>Watch for repeated letters.</b> Foodle words like CHEESE, COFFEE, BANANA all repeat — a yellow doesn't mean "this letter only appears once."</li>
+    <li><b>Switch lengths if you're stumped.</b> The 6- and 7-letter boards have entirely different word pools, and sometimes the longer board is actually <em>easier</em> because there's more signal per guess.</li>
+  </ol>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>What time does the daily word change?</summary>
+      <p>At local midnight, in your time zone. We pick a deterministic word per calendar day, so your friend in Tokyo and you in Los Angeles are solving the same puzzle on the same date.</p>
+    </details>
+    <details>
+      <summary>Can I play yesterday's puzzle?</summary>
+      <p>Not on the daily board — the whole point is that today is today. If you want unlimited replays, hop over to <a href="unlimited/">Unlimited mode</a>. If you want a fresh puzzle every hour, try <a href="hourly/">Hourly</a>.</p>
+    </details>
+    <details>
+      <summary>Are the words always English?</summary>
+      <p>Yes — common-English food words from around the world. Loanwords like RAMEN, KIMCHI, GELATO and MATCHA are fair game because they live in everyday English now.</p>
+    </details>
+    <details>
+      <summary>Why did my streak reset?</summary>
+      <p>The daily streak counts <em>consecutive solved days</em>. If you skip a day or fail to solve, it falls back to zero — but your "best streak" sticks around as a personal record.</p>
+    </details>
+    <details>
+      <summary>Is there a hint penalty?</summary>
+      <p>Each hint you reveal costs one of your remaining guesses. Three hints are available per puzzle. The cost is deliberate — hints should feel like a real trade.</p>
+    </details>
+    <details>
+      <summary>Where are my stats stored?</summary>
+      <p>Right on your device, in your browser's local storage. We don't have user accounts, and your data never leaves your machine. See our <a href="privacy-policy.html">Privacy Policy</a> for the full breakdown.</p>
+    </details>
+    <details>
+      <summary>I think today's word is unfair. What now?</summary>
+      <p>Take a breath, eat something, write us a strongly worded but ultimately forgiving email at <a href="mailto:hello@foodle.game">hello@foodle.game</a>. We read everything.</p>
+    </details>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Looking for the NYT Wordle?</h2>
+  <p>Foodle is its own thing, but if you're here because you're stuck on today's <em>New York Times</em> Wordle, we keep a separate hint page that's updated every morning: <a href="wordle-hint-today.html">today's NYT Wordle hint &amp; answer</a>. Layered reveals — start with a category, work down to the answer only if you need it. We also keep an <a href="hints-date.html">archive by date</a> if you want to look up a specific past puzzle.</p>
+</article>
+
+<div id="site-footer-slot"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>window.FOODLE_FORCED_MODE = "daily";</script>
+<script src="foodle-data.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="foodle-game.jsx"></script>
+<script type="text/babel" src="foodle-modals.jsx"></script>
+<script type="text/babel" src="foodle-app.jsx"></script>
+<script src="footer.js" defer></script>
+</body>
+</html>
